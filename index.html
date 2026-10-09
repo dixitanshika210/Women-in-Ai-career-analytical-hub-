@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Women in AI Career Analytics Hub</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-icon">◉</div><div><strong>Women in AI</strong><small>Career Analytics Hub</small></div></div>
+    <nav>
+      <button class="nav-item active" data-page="home">⌂ <span>Home</span></button>
+      <button class="nav-item" data-page="profile">♙ <span>My Profile</span></button>
+      <button class="nav-item" data-page="assessment">☑ <span>Career Assessment</span></button>
+      <button class="nav-item" data-page="analytics">◫ <span>Career Analytics</span></button>
+      <button class="nav-item" data-page="roadmap">◇ <span>Skill Gap & Roadmap</span></button>
+      <button class="nav-item" data-page="progress">✓ <span>Progress Tracking</span></button>
+    </nav>
+    <div class="sidebar-quote"><div class="quote-icon">♀</div><p>More Women in AI,<br/>A Brighter Future 💜</p></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="mobile-title">Women in AI</div>
+      <input id="searchBox" type="search" placeholder="Search careers, skills, courses..." />
+      <div class="user-chip"><span class="avatar">A</span><span id="headerName">Anshika</span>⌄</div>
+    </header>
+
+    <section id="home" class="page active-page">
+      <div class="hero">
+        <div><span class="eyebrow">CAREER DISCOVERY PLATFORM</span><h1>Build your AI career with confidence.</h1><p>Complete your profile, upload your resume, take the career assessment, understand your skill gaps, and follow a personalized roadmap.</p><button class="primary" data-go="profile">Create My Profile →</button></div>
+        <div class="hero-art">🤖<span>♀</span></div>
+      </div>
+      <div class="stats">
+        <div class="stat-card"><span>🎯</span><div><b>4</b><small>Career paths</small></div></div>
+        <div class="stat-card"><span>📚</span><div><b>12</b><small>Core skills</small></div></div>
+        <div class="stat-card"><span>🗺️</span><div><b>4</b><small>Roadmap stages</small></div></div>
+        <div class="stat-card"><span>📈</span><div><b id="homeProgress">25%</b><small>Demo progress</small></div></div>
+      </div>
+      <div class="section-title"><h2>How it works</h2><p>A simple journey from profile creation to an AI career roadmap.</p></div>
+      <div class="steps">
+        <div class="feature-card"><div class="number">01</div><h3>Create your profile</h3><p>Add your basic education, career goal and resume.</p></div>
+        <div class="feature-card"><div class="number">02</div><h3>Take the assessment</h3><p>Select your interests and current skills separately from your profile.</p></div>
+        <div class="feature-card"><div class="number">03</div><h3>Discover & improve</h3><p>View career matches, skill gaps and a personalized learning roadmap.</p></div>
+      </div>
+    </section>
+
+    <section id="profile" class="page">
+      <div class="page-heading"><div><span class="eyebrow">STEP 1</span><h1>My Profile</h1><p>Enter your personal and education details and upload your resume.</p></div></div>
+      <div class="grid-2">
+        <div class="card">
+          <h2>Profile Details</h2>
+          <div class="form-grid">
+            <label>Full Name<input id="name" value="Anshika Dixit" placeholder="Enter your full name" /></label>
+            <label>Email<input id="email" type="email" placeholder="you@example.com" /></label>
+            <label>Education<select id="education"><option>BBA</option><option>BBA (1st Year)</option><option>BBA (2nd Year)</option><option>B.Com</option><option>MBA</option><option>Other</option></select></label>
+            <label>Career Goal<select id="goal"><option>Work in AI / Data Domain</option><option>AI Product Management</option><option>Data Analytics</option><option>AI Business Analysis</option><option>AI Project Management</option></select></label>
+            <label>College / Institution<input id="college" placeholder="Enter college name" /></label>
+            <label>Graduation Year<select id="gradYear"><option>2028</option><option>2027</option><option>2029</option><option>Other</option></select></label>
+          </div>
+          <button class="primary" id="saveProfile">Save Profile ✓</button>
+          <span class="saved-message" id="profileSaved"></span>
+        </div>
+        <div class="card resume-card">
+          <div class="resume-header"><div class="upload-icon">↑</div><div><h2>Upload Resume</h2><p class="muted">PDF, DOC, DOCX or TXT • Max 5 MB</p></div></div>
+          <label class="upload-box" for="resumeInput"><input id="resumeInput" type="file" accept=".pdf,.doc,.docx,.txt" /><span>📄 Choose your resume</span><small>Click to browse from your computer</small></label>
+          <div id="resumeStatus" class="resume-status empty">No resume uploaded yet.</div>
+          <button class="secondary" id="removeResume" type="button" hidden>Remove Resume</button>
+          <p class="mini-note">For this prototype, the uploaded file is used as profile input and is not sent to a server. A production version can connect a resume parser to extract skills automatically.</p>
+        </div>
+      </div>
+      <div class="next-card"><div><b>Next: Career Assessment</b><p>Select interests and current skills on a separate assessment screen.</p></div><button class="primary" data-go="assessment">Go to Assessment →</button></div>
+    </section>
+
+    <section id="assessment" class="page">
+      <div class="page-heading"><div><span class="eyebrow">STEP 2</span><h1>Career Assessment</h1><p>Tell us what you enjoy and which skills you currently have. This is separate from your profile.</p></div></div>
+      <div class="card">
+        <h2>Your Interests</h2><p class="muted">Choose the areas you enjoy most.</p>
+        <div class="interest-list" id="interestList">
+          <button class="interest selected" data-interest="Technology">Technology</button><button class="interest selected" data-interest="Business">Business</button><button class="interest selected" data-interest="Data & Analytics">Data & Analytics</button><button class="interest" data-interest="AI & Machine Learning">AI & Machine Learning</button><button class="interest" data-interest="Product Management">Product Management</button><button class="interest" data-interest="Research">Research</button><button class="interest" data-interest="Design & Creativity">Design & Creativity</button><button class="interest" data-interest="Project Management">Project Management</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Current Skills</h2><p class="muted">Select all skills you already have.</p>
+        <h3>Technical Skills</h3><div class="skill-list" id="technicalSkills">
+          <button class="skill selected" data-skill="Excel">Excel</button><button class="skill selected" data-skill="Python">Python</button><button class="skill selected" data-skill="Data Analysis">Data Analysis</button><button class="skill" data-skill="SQL">SQL</button><button class="skill" data-skill="Machine Learning">Machine Learning</button><button class="skill" data-skill="Tableau / Power BI">Tableau / Power BI</button>
+        </div>
+        <h3>Professional & Soft Skills</h3><div class="skill-list" id="softSkills">
+          <button class="skill selected" data-skill="Communication">Communication</button><button class="skill selected" data-skill="Teamwork">Teamwork</button><button class="skill selected" data-skill="Problem Solving">Problem Solving</button><button class="skill" data-skill="Leadership">Leadership</button><button class="skill" data-skill="Creativity">Creativity</button><button class="skill" data-skill="Presentation">Presentation</button>
+        </div>
+        <button class="primary analyze-btn" id="analyzeBtn">Save Assessment & Analyze Career →</button>
+        <div class="assessment-saved" id="assessmentSaved"></div>
+      </div>
+    </section>
+
+    <section id="analytics" class="page">
+      <div class="page-heading"><div><span class="eyebrow">STEP 3</span><h1>AI Career Analytics</h1><p>Career matches based on your profile, interests and selected skills.</p></div></div>
+      <div id="careerCards" class="career-grid"></div>
+      <div class="grid-2"><div class="card"><h2>Required Competencies</h2><div id="competencies"></div></div><div class="card"><h2>Your Skills vs. Required Skills</h2><canvas id="skillsChart"></canvas></div></div>
+    </section>
+
+    <section id="roadmap" class="page">
+      <div class="page-heading"><div><span class="eyebrow">STEP 4</span><h1>Skill Gap & Career Roadmap</h1><p>See where you stand and what to learn next.</p></div></div>
+      <div class="grid-2"><div class="card"><h2>Skill Gap Analysis</h2><div class="gap-columns"><div><h3 class="red">Missing Skills</h3><ul id="missingSkills"></ul></div><div><h3 class="yellow">Need to Improve</h3><ul id="improveSkills"></ul></div><div><h3 class="green">Strong Skills</h3><ul id="strongSkills"></ul></div></div></div><div class="card"><h2>Target Career</h2><div class="target-career"><span class="target-icon">✦</span><div><b id="targetRole">AI Product Manager</b><p>Based on your latest assessment</p></div></div></div></div>
+      <div class="card"><h2>Your Personalized Learning Roadmap</h2><div class="roadmap"><div class="road-step"><span>1</span><div><h3>Foundation Skills</h3><p>Strengthen Excel, Python basics and communication.</p><small>Excel • Python Basics • Communication</small></div><b>50%</b></div><div class="arrow">→</div><div class="road-step"><span>2</span><div><h3>Core AI & Data Skills</h3><p>Learn SQL, data analysis and machine-learning basics.</p><small>SQL • Data Analysis • ML Basics</small></div><b>30%</b></div><div class="arrow">→</div><div class="road-step"><span>3</span><div><h3>Practical Projects</h3><p>Apply your skills through real-world projects.</p><small>Analytics Project • AI/ML Mini Project</small></div><b>15%</b></div><div class="arrow">→</div><div class="road-step"><span>4</span><div><h3>Career Readiness</h3><p>Prepare your resume and interview portfolio.</p><small>Resume • LinkedIn • Mock Interviews</small></div><b>5%</b></div></div></div>
+    </section>
+
+    <section id="progress" class="page">
+      <div class="page-heading"><div><span class="eyebrow">STEP 5</span><h1>Progress Tracking</h1><p>Track your learning journey toward your target career.</p></div></div>
+      <div class="progress-card card"><div class="progress-ring"><span id="progressValue">25%</span></div><div><h2>Career Readiness</h2><p>Your profile and initial career assessment are ready.</p><div class="bar"><span id="progressBar"></span></div><small>Complete more skills and projects to increase readiness.</small></div></div>
+    </section>
+    <footer>Women in AI Career Analytics Hub • Student Project Prototype • Version 2</footer>
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
